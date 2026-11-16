@@ -25,14 +25,6 @@ The local source file is ignored by Git. Anything you deploy to a browser is sti
 
 The inherited F12 shortcut suppression is a UI behavior, not a security feature. Browser tools and page source remain accessible.
 
-## GitHub and hosting
-
-Create a new repository from this folder only. Start with fresh Git history. Do not copy private source files, deployment archives, account configuration or unrelated repository history into it.
-
-For static hosting, use `dist` as the site root. GitHub Pages needs a Pages deployment configuration that uploads that directory. No GitHub repository or deployment has been created by this export.
-
-The unconfigured template sends no media requests. Once you add sources, hosting and media providers receive ordinary connection requests. Use sources with appropriate distribution rights; a project label does not provide permission to redistribute a broadcast.
-
 ## Donation image
 
 The included `dist/donation-qr.svg` is a non-scannable placeholder. Replace it with your own authorized payment image and update its alternative text when ready.
