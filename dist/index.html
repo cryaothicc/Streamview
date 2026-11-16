@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#141518"><meta name="description" content="A compact streaming-player template."><title>Streamview · Live cameras</title>
+<link rel="icon" href="./favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="./styles.css"><script defer src="./vendor/shaka-player.compiled.min.js"></script><script type="module" src="./app.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#viewer">Skip to player</a>
+<header class="header"><a href="./" class="wordmark" aria-label="Streamview home">Streamview<span></span></a><span class="edition">STREAM PLAYER</span><div class="header-actions"><button class="help-button" data-dialog="helpDialog" aria-label="How to use"><span data-icon="help"></span><span>How to use</span></button><button class="support-button" data-dialog="donateDialog"><span data-icon="heart"></span>Donate</button></div></header>
+<main>
+<div class="toolbar"><nav class="feed-tabs" aria-label="Choose broadcast"><button id="camerasTab" aria-pressed="true"><span data-icon="camera"></span>Cameras</button><button id="channelTab" aria-pressed="false"><span data-icon="broadcast"></span>Live channel</button></nav><div class="layout-switch" id="layoutSwitch" role="group" aria-label="Camera layout"><button id="multiView" aria-pressed="true"><span data-icon="multi"></span><span>3 cameras</span></button><button id="singleView" aria-pressed="false"><span data-icon="single"></span><span>Single</span></button></div></div>
+<section class="viewer" id="viewer" aria-label="Live video player" tabindex="-1"><div class="camera-wall" id="cameraWall"></div><div class="channel-wall" id="channelWall" hidden></div>
+<div class="player-controls" id="playerControls"><div class="playback-controls"><button id="playToggle" class="icon-button" aria-label="Play cameras" title="Play"><span data-icon="play"></span></button><button id="goLive" class="live-button" disabled aria-label="Jump to live edge"><i></i><span>Go live</span></button><div class="sound-control" id="soundControl"><button id="soundToggle" class="icon-button" aria-label="Unmute Camera 1" title="Sound"><span data-icon="muted"></span></button><input id="volume" type="range" min="0" max="100" value="75" aria-label="Volume"><span id="audioName">Camera 1</span></div></div>
+<div class="display-controls"><label class="quality"><span class="sr-only">Picture quality</span><select id="quality" aria-label="Picture quality"><option value="auto">Auto</option><option value="360">360p</option><option value="720">720p</option><option value="1080">1080p</option></select></label><button id="refresh" class="icon-button" aria-label="Reconnect feeds" title="Reconnect"><span data-icon="refresh"></span></button><button id="pip" class="icon-button" aria-label="Picture in picture" title="Picture in picture"><span data-icon="pip"></span></button><button id="fullScreen" class="icon-button" aria-label="Full screen" title="Full screen"><span data-icon="expand"></span></button></div></div></section>
+<div class="channel-bar"><div class="now-watching"><span class="eyebrow">WATCHING</span><h1 id="currentTitle">Camera 1</h1></div><div class="camera-picker" id="cameraPicker" role="group" aria-label="Main camera"></div><div class="channel-notice" id="channelNotice" hidden><i></i><span>Live status unverified</span></div><button class="source-state" id="sourceState" data-dialog="healthDialog" title="Connection details">Ready</button></div>
+</main>
+<footer><span>Streamview <span class="footer-separator">/</span> viewer project</span><button data-dialog="noticeDialog">Project notice<span data-icon="arrow"></span></button></footer>
+<dialog id="donateDialog" class="donate-dialog" aria-labelledby="donateTitle"><button class="icon-button dialog-corner-close" data-close aria-label="Close donation panel"><span data-icon="close"></span></button><div class="donation-body"><h2 id="donateTitle">Support Streamview</h2><p>Thank you for being here.</p><div class="qr-frame"><img class="donation-qr" src="./donation-qr.svg" width="220" height="220" alt="Donation QR image — coming soon"></div><span class="donation-caption">Support Streamview</span></div></dialog>
+<dialog id="helpDialog" aria-labelledby="helpTitle"><div class="dialog-header"><h2 id="helpTitle">How to use</h2><button class="icon-button" data-close aria-label="Close help"><span data-icon="close"></span></button></div><div class="dialog-body help-items">
+<p><span data-icon="multi"></span><span><strong>Pick a view</strong>Select a smaller camera to bring it forward. Single shows just that camera.</span></p>
+<p><span data-icon="volume"></span><span><strong>Choose your sound</strong>Sound follows the main camera. Tap the speaker to unmute. Some broadcasts may be silent.</span></p>
+<p><span data-icon="broadcast"></span><span><strong>Stay up to date</strong>Go live catches up after a pause. Returning to this tab catches up automatically while playing.</span></p>
+<p><span data-icon="pip"></span><span><strong>Watch while browsing</strong>Picture in picture opens the main video in a floating window, where supported.</span></p>
+<p><span data-icon="play"></span><span><strong>Live channel</strong>Open the configured channel. Its on-air status is not checked automatically.</span></p>
+<p class="help-keyboard">Space Play / pause · M Sound · F Full screen</p></div></dialog>
+<dialog id="healthDialog" aria-labelledby="healthTitle"><div class="dialog-header"><h2 id="healthTitle">Connection</h2><button class="icon-button" data-close aria-label="Close connection details"><span data-icon="close"></span></button></div><div class="dialog-body"><div id="healthRows"></div><p class="privacy-note">Measured on this device. Streamview sends no analytics or diagnostic reports. Hosting and video providers still receive requests, including your IP address.</p><button id="copyDiagnostics" class="secondary-button">Copy details</button></div></dialog>
+<dialog id="noticeDialog" aria-labelledby="noticeTitle">
+  <div class="dialog-header">
+    <h2 id="noticeTitle">About this project</h2>
+    <button class="icon-button" data-close aria-label="Close project notice"><span data-icon="close"></span></button>
+  </div>
+  <div class="dialog-body">
+    <p>Streamview is a streaming-player template. No broadcasts or playback credentials are included.</p>
+    <p>Connect only sources you are authorized to use. Settings delivered to a browser are visible to its visitors.</p>
+    <p>Connection details stay on this device unless copied. Hosting and video providers receive ordinary requests, including connection IP addresses.</p>
+  </div>
+</dialog>
+<div id="toast" class="toast" role="status" aria-live="polite" hidden></div><noscript><p class="noscript">JavaScript is required to play the cameras.</p></noscript>
+</body></html>

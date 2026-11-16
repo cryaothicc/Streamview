@@ -1,0 +1,24 @@
+{
+  "cameras": [
+    {
+      "id": "camera-1",
+      "name": "Camera 1",
+      "url": ""
+    },
+    {
+      "id": "camera-2",
+      "name": "Camera 2",
+      "url": ""
+    },
+    {
+      "id": "camera-3",
+      "name": "Camera 3",
+      "url": ""
+    }
+  ],
+  "channel": {
+    "id": "main",
+    "name": "Live channel",
+    "url": ""
+  }
+}

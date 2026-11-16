@@ -1,0 +1,11 @@
+{
+  "name": "streamview-player",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A compact streaming-player template with no included broadcast sources.",
+  "scripts": {
+    "start": "node scripts/serve.mjs",
+    "test": "node --test tests/*.test.mjs"
+  }
+}
